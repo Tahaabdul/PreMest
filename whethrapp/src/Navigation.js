@@ -15,7 +15,7 @@ function Navigation() {
         className="d-inline-block align-top"
       />{' '}
       Whether(?)App</Navbar.Brand>
-      <Nav.Link href="#home">SignUp</Nav.Link>
+      <Button variant="dark">SignUp</Button>
       <Form>
   <Row>
     <Col>
