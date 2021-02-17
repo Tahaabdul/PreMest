@@ -1,5 +1,4 @@
 import React from 'react';
-import Login from './Login'
 import logo from './images/logo.png';
 
 import { Navbar, FormControl, Nav, InputGroup, Button, Row, Col, Form} from 'react-bootstrap';
