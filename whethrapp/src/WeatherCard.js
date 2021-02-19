@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, FormControl, } from 'react-bootstrap'
 import sunny from './images/animated/day.svg';
 
 function WeatherCard() {
+    const [location, setLocation] = useState("0,0");
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const long = position.coords.longitude;
-            console.log('Latitude: ', lat);
-            console.log('Longitude: ', long);
+            const latlon = `${position.coords.latitude},${position.coords.longitude}`;
+            setLocation(latlon);
         }, error => {
             console.log('Need access to get location.');
         });
     }
+
+    // const params = {
+    //     access_key: 'a127ab62fa1a6d77a38a6eb2052bd02b',
+    //     query: location
+    // }
+
+
+    const [weather, setWeather] = useState(null)
+
+    useEffect(() => {
+        fetch(`http://api.weatherstack.com/current?access_key=a127ab62fa1a6d77a38a6eb2052bd02b&query=${location}`)
+        .then(response => response.json())
+        .then(data => setWeather(data)).catch(err => console.error(err));
+            }, [weather, location])
+
     return (
         <>
             <Form inline >
@@ -25,7 +40,7 @@ function WeatherCard() {
                 <Card.ImgOverlay>
                     <Card.Title>Location: </Card.Title>
                     <Card.Text>
-                        <h1>28&deg;</h1>
+                        28&deg;
                     </Card.Text>
                     <Card.Text>Last updated 3 mins ago</Card.Text>
                 </Card.ImgOverlay>
