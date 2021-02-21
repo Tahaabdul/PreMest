@@ -18,24 +18,26 @@ function WeatherCard() {
     }
 
 
-    const [weather, setWeather] = useState(null);
+    let [weather, setWeather] = useState({});
     const [isPageLoading, setLoading] = useState(true);
 
+    const params = {
+        access_key: 'fb3ff6773767e8dd092d69abf7d724ff',
+        query: location,
+    };
+    
     useEffect(() => {
         getLocation();
-        const params = {
-            access_key: 'a127ab62fa1a6d77a38a6eb2052bd02b',
-            query: location
-        };
-        axios.get('http://api.weatherstack.com/current', { params })
-            .then(data => {
-                console.log(data);
-                setWeather(data);
+        axios.get(`http://api.weatherstack.com/current?access_key=a6db9a21e5857c63e2bc88cdd1129342&query=New York`)
+        // { params }
+            .then(res => {
+                console.log(res.data);
+                setWeather(res.data);
                 setLoading(false);
             })
             .catch(err => console.error(err));
     }, []);
-
+    
     return (
         <>
             {
@@ -44,12 +46,13 @@ function WeatherCard() {
                     <p>getting location and weather data</p>
                     :
                     <>
-                        <Card style={{ width: '18rem', position: 'fixed', top: "50%", left: "40%", }}>
+                        <Card style={{ width: '20rem', position: 'fixed', top: "50%", left: "40%", }}>
                             <Card.Img src={weather.current.weather_icons[0]} alt="Card image" />
                             <Card.ImgOverlay>
                                 <Card.Title>Country: {weather.location.country}</Card.Title>
                                 <Card.Subtitle>Location: {weather.location.name}</Card.Subtitle>
-                                <Card.Subtitle>Last updated{weather.current.observation_time}</Card.Subtitle>
+                                <br/>
+                                <Card.Subtitle>Local time: {weather.location.localtime}</Card.Subtitle>
                                 <Card.Text>
                                     {weather.current.temperature}&deg;C
                                 </Card.Text>
