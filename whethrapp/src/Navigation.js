@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './images/logo.png';
-
 import { Navbar, FormControl, Nav, InputGroup, Button, Row, Col, Form} from 'react-bootstrap';
+import Login from './Login';
 
 function Navigation() {
     return (
@@ -16,22 +16,8 @@ function Navigation() {
       />{' '}
       Whether(?)App</Navbar.Brand>
       <Button variant="dark">SignUp</Button>
-      <Form>
-  <Row>
-    <Col>
-    <InputGroup>
-        <InputGroup.Prepend>
-          <InputGroup.Text>@</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl id="inlineFormInputGroupUsername" placeholder="Email" />
-      </InputGroup>
-    </Col>
-    <Col>
-    <Form.Control type="password" placeholder="Password" />
-    </Col>
-    <Button variant="outline-light">Login</Button>
-  </Row>
-</Form>
+
+      <Login/>
 </Navbar>
         </>
     )

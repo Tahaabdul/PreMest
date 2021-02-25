@@ -28,8 +28,8 @@ function WeatherCard() {
     
     useEffect(() => {
         getLocation();
-        axios.get(`http://api.weatherstack.com/current?access_key=a6db9a21e5857c63e2bc88cdd1129342&query=New York`)
-        // { params }
+        // http://api.weatherstack.com/current?access_key=a6db9a21e5857c63e2bc88cdd1129342&query=New York
+        axios.get(`https://swapi.dev/api/planets/1/`)
             .then(res => {
                 console.log(res.data);
                 setWeather(res.data);
@@ -46,7 +46,7 @@ function WeatherCard() {
                     <p>getting location and weather data</p>
                     :
                     <>
-                        <Card style={{ width: '20rem', position: 'fixed', top: "50%", left: "40%", }}>
+                        {/* <Card style={{ width: '20rem', position: 'fixed', top: "50%", left: "40%", }}>
                             <Card.Img src={weather.current.weather_icons[0]} alt="Card image" />
                             <Card.ImgOverlay>
                                 <Card.Title>Country: {weather.location.country}</Card.Title>
@@ -58,7 +58,7 @@ function WeatherCard() {
                                 </Card.Text>
                                 <Card.Text>{weather.current.weather_descriptions[0]}</Card.Text>
                             </Card.ImgOverlay>
-                        </Card>
+                        </Card> */}
                     </>
             }
 
