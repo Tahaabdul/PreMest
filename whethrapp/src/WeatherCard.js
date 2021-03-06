@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, } from 'react-bootstrap'
+import { Card,Form, FormControl, Button } from 'react-bootstrap'
 import axios from 'axios';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSpinner} from '@fortawesome/free-solid-svg-icons'
 
 function WeatherCard() {
     const [location, setLocation] = useState("0,0");
@@ -45,10 +47,19 @@ function WeatherCard() {
 
     return (
         <>
+          <>
+            <Form inline >
+                <FormControl type="text" placeholder="Search" style={{ width: "50%", position: 'fixed', top: "30%", left: "25%" }} />
+                <Button variant="dark" style={{ position: 'fixed', top: "30%", left: "75%" }}>Search</Button>
+            </Form>
+        </>
             {
                 isPageLoading
                     ?
-                    <p>getting location and weather data</p>
+                    <>
+                    <FontAwesomeIcon icon={faSpinner} spin size="10x" color="white"/>
+                    <p >getting location and weather data</p>
+                    </>
                     :
                     <>
                         <Card style={{ width: '20rem', position: 'fixed', top: "50%", left: "40%", }}>
