@@ -1,26 +1,30 @@
 import React from 'react';
 import logo from './images/logo.png';
-import { Navbar, FormControl, Nav, InputGroup, Button, Row, Col, Form} from 'react-bootstrap';
+import { Navbar, } from 'react-bootstrap';
 import Login from './Login';
+import SignUp from './SignUp';
+import SignOut from './SignOut';
 
-function Navigation() {
-    return (
-        <>
-<Navbar bg="dark"  variant="dark"  className="bg-light justify-content-between">
-  <Navbar.Brand href="#home"> <img
-        alt=""
-        src={logo}
-        width="50"
-        height="25"
-        className="d-inline-block align-top"
-      />{' '}
+function Navigation({ setIsLoggedIn, isLoggedIn }) {
+
+  return (
+    <>
+      <Navbar bg="dark" variant="dark" className="bg-light justify-content-between">
+        <Navbar.Brand href="#home"> <img
+          alt=""
+          src={logo}
+          width="50"
+          height="25"
+          className="d-inline-block align-top"
+        />{' '}
       Whether(?)App</Navbar.Brand>
-      <Button variant="dark">SignUp</Button>
+       {!isLoggedIn  &&<SignUp />}
+       {!isLoggedIn && <Login setIsLoggedIn={setIsLoggedIn} />}
+       {isLoggedIn && <SignOut/>}
 
-      <Login/>
-</Navbar>
-        </>
-    )
+      </Navbar>
+    </>
+  )
 }
 
 
