@@ -4,49 +4,49 @@ import axios from 'axios';
 
 function WeatherCard() {
     const [location, setLocation] = useState("0,0");
-    const [locationReady, setLocationReady] = useState(false);
 
-    function getLocation() {
+
+    let [weather, setWeather] = useState({});
+    const [isPageLoading, setLoading] = useState(true);
+    const [locationReady, setLocationReady] =useState(false)
+
+
+    useEffect(() => {
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 const latlon = `${position.coords.latitude},${position.coords.longitude}`;
                 setLocation(latlon);
                 console.log(latlon);
+                setLocationReady(true);
+                if (locationReady === true){
+                    
+                const params = {
+                    access_key: 'a6db9a21e5857c63e2bc88cdd1129342',
+                    query: `${location}`,
+                };
+                axios.get('http://api.weatherstack.com/current', { params })
+                    .then(res => {
+                        console.log(res.data);
+                        setWeather(res.data);
+                        setLoading(false);
+                    })
+                    .catch(err => console.error(err));
+                }
+
 
             }, error => {
                 console.error(`${error}Need access to get location.`);
             });
         }
-    }
 
 
-    let [weather, setWeather] = useState({});
-    const [isPageLoading, setLoading] = useState(true);
-
-   
-    getLocation();
-
-    useEffect(() => {
-        
-        const params = {
-            access_key: 'a6db9a21e5857c63e2bc88cdd1129342',
-            query: 'location',
-        };
-        console.log(params.query)
-        // 
-        axios.get('http://api.weatherstack.com/current', {params})
-            .then(res => {
-                console.log(res.data);
-                setWeather(res.data);
-                setLoading(false);
-            })
-            .catch(err => console.error(err));
-    }, [location]);
+    }, [locationReady,location])
 
     return (
         <>
             {
-                isPageLoading 
+                isPageLoading
                     ?
                     <p>getting location and weather data</p>
                     :
@@ -56,7 +56,7 @@ function WeatherCard() {
                             <Card.ImgOverlay>
                                 <Card.Title>Country: {weather.location.country}</Card.Title>
                                 <Card.Subtitle>Location: {weather.location.region}</Card.Subtitle>
-                                <br/>
+                                <br />
                                 <Card.Subtitle>Local time: {weather.location.localtime}</Card.Subtitle>
                                 <Card.Text>
                                     {weather.current.temperature}&deg;C
