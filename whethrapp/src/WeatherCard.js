@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card,Form, FormControl, Button } from 'react-bootstrap'
+import { Card, Form, FormControl, Button } from 'react-bootstrap'
 import axios from 'axios';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSpinner} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 function WeatherCard() {
     const [location, setLocation] = useState("0,0");
@@ -10,8 +10,37 @@ function WeatherCard() {
 
     let [weather, setWeather] = useState({});
     const [isPageLoading, setLoading] = useState(true);
-    const [locationReady, setLocationReady] =useState(false)
+    const [locationReady, setLocationReady] = useState(false);
 
+    const [searchLocation, setSearchLocation] = useState('');
+
+
+
+    function handleSearchInput(event) {
+        setSearchLocation(event.target.value);
+        console.log(searchLocation)
+    };
+    
+    function handleSearch(event) {
+        event.preventDefault();
+        setLoading(true);
+
+        const params = {
+            access_key: 'a6db9a21e5857c63e2bc88cdd1129342',
+            query: `${searchLocation}`,
+        };
+        axios.get('http://api.weatherstack.com/current', { params })
+            .then(res => {
+                console.log(res.data);
+                setWeather(res.data);
+                setLoading(false);
+            })
+            .catch(err => console.error(err));
+    
+
+    
+        
+    }
 
     useEffect(() => {
 
@@ -21,19 +50,19 @@ function WeatherCard() {
                 setLocation(latlon);
                 console.log(latlon);
                 setLocationReady(true);
-                if (locationReady === true){
-                    
-                const params = {
-                    access_key: 'a6db9a21e5857c63e2bc88cdd1129342',
-                    query: `${location}`,
-                };
-                axios.get('http://api.weatherstack.com/current', { params })
-                    .then(res => {
-                        console.log(res.data);
-                        setWeather(res.data);
-                        setLoading(false);
-                    })
-                    .catch(err => console.error(err));
+                if (locationReady === true) {
+
+                    const params = {
+                        access_key: 'a6db9a21e5857c63e2bc88cdd1129342',
+                        query: `${location}`,
+                    };
+                    axios.get('http://api.weatherstack.com/current', { params })
+                        .then(res => {
+                            console.log(res.data);
+                            setWeather(res.data);
+                            setLoading(false);
+                        })
+                        .catch(err => console.error(err));
                 }
 
 
@@ -43,24 +72,25 @@ function WeatherCard() {
         }
 
 
-    }, [locationReady,location])
+    }, [locationReady, location])
 
     return (
         <>
-          <>
-            <Form inline >
-                <FormControl type="text" placeholder="Search" style={{ width: "50%", position: 'fixed', top: "30%", left: "25%" }} />
-                <Button variant="dark" style={{ position: 'fixed', top: "30%", left: "75%" }}>Search</Button>
-            </Form>
-        </>
+            <>
+                <Form inline >
+                    <FormControl type="text" value={searchLocation} placeholder="Enter City Name" onChange={handleSearchInput} style={{ width: "50%", position: 'fixed', top: "30%", left: "25%" }} />
+                    <Button variant="dark" onClick={handleSearch} style={{ position: 'fixed', top: "30%", left: "75%" }} >Search</Button>
+                </Form>
+            </>
             {
                 isPageLoading
                     ?
-                    <>
-                    <FontAwesomeIcon icon={faSpinner} spin size="10x" color="white"/>
-                    <p >getting location and weather data</p>
-                    </>
+                    < div style={{ position: 'fixed', top: "50%", left: "40%", color: 'white' }}>
+                        <FontAwesomeIcon icon={faSpinner} spin size="10x" color="white" />
+                        <h2 >getting location and weather data</h2>
+                    </ div>
                     :
+
                     <>
                         <Card style={{ width: '20rem', position: 'fixed', top: "50%", left: "40%", }}>
                             <Card.Img src={weather.current.weather_icons[0]} alt="Card image" />
