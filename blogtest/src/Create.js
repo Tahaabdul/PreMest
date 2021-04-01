@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
 
-const Create = () => {
+const Create = ({isLoggedIn}) => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [author, setAuthor] = useState("");
@@ -23,7 +23,9 @@ const Create = () => {
     }
 
     return (
-        <div className="page-forms">
+        {
+            if (isLoggedIn ===true){
+                <div className="page-forms">
             <h2>Create New Blog Post</h2>
             <form onSubmit={handleSubmit}>
                 <label>Blog Tiltle:</label>
@@ -39,12 +41,16 @@ const Create = () => {
                 ></textarea>
                 <label>Blog Author:</label>
                 <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-
-                
                 {!loading && <button>Add Post</button>}
                 {loading && <button disabled>Add Post</button>}
             </form>
         </div>
+            }
+        else{
+        <h2>Sorry, You have to be signed in to Post</h2>
+        <strong>Already a user? <Link to="/Login"></Link> or <Link to="/Signup">Create Account</Link></strong>
+        }
+    }
     );
 }
 
