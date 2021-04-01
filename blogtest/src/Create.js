@@ -8,44 +8,46 @@ const Create = () => {
     const [loading, setLoading] = useState(false);
     const history = useHistory();
 
-    const handleSubmit =( event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const blog = {title, body, author};
+        const blog = { title, body, author };
         setLoading(true);
 
         fetch('http://localhost:8000/blogs', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(blog),
         }).then(
             setLoading(false));
-            history.push("/");
+        history.push("/");
     }
-    
-    return ( 
-        <div className="create">
+
+    return (
+        <div className="page-forms">
             <h2>Create New Blog Post</h2>
             <form onSubmit={handleSubmit}>
                 <label>Blog Tiltle:</label>
-                <input 
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required/>
+                <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required />
                 <label>Blog Body:</label>
-                <textarea required  
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
+                <textarea required
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
                 ></textarea>
                 <label>Blog Author:</label>
                 <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+
+                
                 {!loading && <button>Add Post</button>}
                 {loading && <button disabled>Add Post</button>}
             </form>
         </div>
-     );
+    );
 }
- 
+
 
 
 export default Create;
