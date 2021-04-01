@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
+import {Link, useHistory, }from 'react-router-dom';
 
-const Create = ({isLoggedIn}) => {
+
+const Create = ({ isLoggedIn }) => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [author, setAuthor] = useState("");
@@ -23,34 +24,36 @@ const Create = ({isLoggedIn}) => {
     }
 
     return (
-        {
-            if (isLoggedIn ===true){
+        <>
+            {  isLoggedIn ?
                 <div className="page-forms">
-            <h2>Create New Blog Post</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Blog Tiltle:</label>
-                <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required />
-                <label>Blog Body:</label>
-                <textarea required
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                ></textarea>
-                <label>Blog Author:</label>
-                <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-                {!loading && <button>Add Post</button>}
-                {loading && <button disabled>Add Post</button>}
-            </form>
-        </div>
+                    <h2>Create New Blog Post</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label>Blog Tiltle:</label>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required />
+                        <label>Blog Body:</label>
+                        <textarea required
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                        ></textarea>
+                        <label>Blog Author:</label>
+                        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+                        {!loading && <button>Add Post</button>}
+                        {loading && <button disabled>Add Post</button>}
+                    </form>
+                </div>
+                :
+                <>
+                    <h2>Sorry, You have to be signed in to Post</h2>
+                    <br/> <br/>
+                    <strong>Already a user? <Link to="/Login">SignIn</Link> or <Link to="/Signup"> Create Account</Link></strong>
+                </>
             }
-        else{
-        <h2>Sorry, You have to be signed in to Post</h2>
-        <strong>Already a user? <Link to="/Login"></Link> or <Link to="/Signup">Create Account</Link></strong>
-        }
-    }
+        </>
     );
 }
 
