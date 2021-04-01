@@ -2,11 +2,14 @@ import { Link } from "react-router-dom"
 
 
 
+
 const PageNotFound = () => {
     return ( 
-        <div className="PageNotFound">
-            <h2>Page Not Found</h2> <br/>
-            <p>Sorry, The page or resource you requested doesn't exist</p>
+        <div className="page-not-found">
+            <div className="error-image">
+            <h2 style={{color: 'white'}}>Page Not Found</h2> <br/>
+            <strong>
+            <p style={{color: 'white'}}>Sorry, The page or resource you requested doesn't exist</p></strong>
             <br/><br/>
 
             <Link to="/"style={{
@@ -17,7 +20,7 @@ const PageNotFound = () => {
                 borderRadius: "8px",
                 cursor: "pointer"
 
-                }}>Back to homepage</Link>
+                }}>Back to homepage</Link></div>    
         </div>
      );
 }

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-*{   
+* {
   margin: 0;
   color: #333;
   font-family: "Quicksand";
@@ -7,7 +7,8 @@
 }
 
 /* navigation */
-.navbar{
+
+.navbar {
   padding: 20px;
   display: flex;
   align-items: center;
@@ -16,59 +17,60 @@
   border-bottom: 1px solid #f2f2f2;
 }
 
-.navbar h1{
+.navbar h1 {
   color: #f1356d;
-
 }
 
-.navbar .links{
+.navbar .links {
   margin-left: auto;
 }
 
-.navbar a{
+.navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
 
-.navbar a:hover{
+.navbar a:hover {
   color: #f1356d;
 }
 
-
 /* Main Blog Content */
-.content{
+
+.content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
 }
 
 /* blog list preview */
+
 .blog-preview {
-  padding: 10px  16px;
+  padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
-
 }
 
-.blog-preview:hover{
+.blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 1)
 }
 
-.blog-preview h2{
-font-size: 20px;
-color: #f1356d;
-margin-bottom: 8px;
+.blog-preview h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
 }
 
-.blog-preview a{
-  text-decoration: none;  
+.blog-preview a {
+  text-decoration: none;
 }
 
 /*Blog Details Page  */
-.blog-details div{
+
+.blog-details div {
   margin: 20px 0;
 }
+
 .blog-details button {
   background: #f1356d;
   color: #fff;
@@ -78,26 +80,26 @@ margin-bottom: 8px;
   cursor: pointer;
 }
 
-
 /* Create Blog Post Page */
+
 .create {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
 }
 
-.create label{
+.create label {
   text-align: left;
   display: block;
 }
 
-.create h2{
+.create h2 {
   font-size: 20px;
-  color:#f1356d;
+  color: #f1356d;
   margin-bottom: 30px;
 }
 
-.create input , .create textarea{
+.create input, .create textarea {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -113,4 +115,21 @@ margin-bottom: 8px;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.page-not-found {
+  background-image: url('./assets/images/404.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 60vw;
+  height: 70vh;
+  color:#fff;
+}
+
+.error-image{
+  position: fixed;
+   top: 30%;
+   left: 50% ;
+   color: white
 }
