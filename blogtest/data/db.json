@@ -4,30 +4,40 @@
       "title": "Blog Post 2",
       "body": "Esse exercitation nostrud velit ullamco culpa eiusmod occaecat non non exercitation consequat eiusmod voluptate dolore. Elit sunt quis magna fugiat minim cillum Lorem aliqua. Tempor ut adipisicing ea irure.Sunt cupidatat velit id sit consectetur voluptate velit excepteur consectetur dolore. Nulla amet ullamco aliqua est deserunt eiusmod aliquip fugiat adipisicing pariatur. Incididunt nostrud aliqua incididunt in id ullamco Lorem esse duis. Consequat consectetur deserunt nostrud Lorem veniam ullamco. Culpa sint exercitation ipsum deserunt cillum officia velit elit officia dolor id ipsum. Aliquip irure irure aliquip quis ipsum elit ad commodo qui officia. Consectetur fugiat consectetur et consectetur culpa eiusmod enim ipsum aute minim magna.",
       "author": "art",
+      "likes": 0,
+      "dislikes": 0,
       "id": 2
     },
     {
       "title": "Blog Post 3",
       "body": "Esse exercitation nostrud velit ullamco culpa eiusmod occaecat non non exercitation consequat eiusmod voluptate dolore. Elit sunt quis magna fugiat minim cillum Lorem aliqua. Tempor ut adipisicing ea irure.Sunt cupidatat velit id sit consectetur voluptate velit excepteur consectetur dolore. Nulla amet ullamco aliqua est deserunt eiusmod aliquip fugiat adipisicing pariatur. Incididunt nostrud aliqua incididunt in id ullamco Lorem esse duis. Consequat consectetur deserunt nostrud Lorem veniam ullamco. Culpa sint exercitation ipsum deserunt cillum officia velit elit officia dolor id ipsum. Aliquip irure irure aliquip quis ipsum elit ad commodo qui officia. Consectetur fugiat consectetur et consectetur culpa eiusmod enim ipsum aute minim magna.",
       "author": "art",
+      "likes": 0,
+      "dislikes": 0,
       "id": 3
     },
     {
       "title": "Lorem 1 ",
       "body": "Elit pariatur id in sunt. Aute labore labore ut mollit consectetur sint quis cillum eiusmod elit ad nostrud ut cupidatat. Dolor dolor occaecat id eu. In tempor sint labore et nostrud enim cupidatat minim culpa commodo dolore ut. Tempor fugiat laborum mollit incididunt dolore est qui nostrud esse irure occaecat anim. Pariatur laboris anim elit laboris nisi cupidatat ea reprehenderit veniam occaecat incididunt eiusmod aute cillum.\n\nProident id incididunt aliquip aliquip dolore qui ut. Duis cupidatat dolor deserunt minim amet. In proident amet incididunt aliqua.\n\nCupidatat aliquip laboris aliquip fugiat aliqua eu ullamco voluptate nisi. Ex sit proident consectetur veniam mollit incididunt ipsum est sit cillum velit in laboris. Laboris ullamco consectetur do sint et mollit deserunt tempor. Adipisicing eu anim sit commodo reprehenderit incididunt dolore sint laborum ut reprehenderit. Est aliquip tempor voluptate qui nostrud exercitation laboris tempor minim excepteur irure.",
       "author": "xaqi",
+      "likes": 0,
+      "dislikes": 0,
       "id": 4
     },
     {
       "title": "Lorem 2",
       "body": "Elit pariatur id in sunt. Aute labore labore ut mollit consectetur sint quis cillum eiusmod elit ad nostrud ut cupidatat. Dolor dolor occaecat id eu. In tempor sint labore et nostrud enim cupidatat minim culpa commodo dolore ut. Tempor fugiat laborum mollit incididunt dolore est qui nostrud esse irure occaecat anim. Pariatur laboris anim elit laboris nisi cupidatat ea reprehenderit veniam occaecat incididunt eiusmod aute cillum.\n\nProident id incididunt aliquip aliquip dolore qui ut. Duis cupidatat dolor deserunt minim amet. In proident amet incididunt aliqua.\n\nCupidatat aliquip laboris aliquip fugiat aliqua eu ullamco voluptate nisi. Ex sit proident consectetur veniam mollit incididunt ipsum est sit cillum velit in laboris. Laboris ullamco consectetur do sint et mollit deserunt tempor. Adipisicing eu anim sit commodo reprehenderit incididunt dolore sint laborum ut reprehenderit. Est aliquip tempor voluptate qui nostrud exercitation laboris tempor minim excepteur irure.",
       "author": "xaqi",
+      "likes": 5,
+      "dislikes": 0,
       "id": 5
     },
     {
       "title": "Sorted",
       "body": "Magna exercitation adipisicing labore exercitation sunt exercitation laborum esse cillum cupidatat excepteur. Consequat ut excepteur aliquip commodo est enim sit occaecat deserunt. Id duis ea occaecat occaecat aute aliquip velit esse quis amet proident. Enim sunt est deserunt velit aute ullamco aute cillum in exercitation labore ut excepteur. Nostrud non eu aliqua eiusmod reprehenderit ipsum ea consequat pariatur nisi id proident consectetur.",
       "author": "Test",
+      "likes": 0,
+      "dislikes": 0,
       "id": 7
     }
   ]

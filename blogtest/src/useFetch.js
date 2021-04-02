@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 const useFetch = (url) => {
 
     const [data, setData] = useState(null);
-    const [isLoading, setIslLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const useFetch = (url) => {
                 return res.json();
             }).then(data => {
                 setData(data);
-                setIslLoading(false);
+                setIsLoading(false);
                 setError(null);
             }).catch(err => {
                 if (err.name === 'AbortError') {
@@ -26,7 +26,7 @@ const useFetch = (url) => {
                 }
                 else {
                     setError(err.message)
-                    setIslLoading(false);
+                    setIsLoading(false);
                 }
             })
         return () => abortConst.abort();

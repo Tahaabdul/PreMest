@@ -29,7 +29,7 @@ function App() {
               <Signup setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
             </Route>
             <Route path="/blogs/:id">
-              <BlogDetails />
+              <BlogDetails isLoggedIn={isLoggedIn}/>
             </Route>
             <Route path="*">
               <PageNotFound />
