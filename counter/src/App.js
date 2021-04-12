@@ -1,11 +1,13 @@
-import React from 'react';
-import Counter from './Counter';
+import React from "react";
+import Counter from "./Counter";
 
 function App() {
   return (
-    <div>
-    <Counter/>
-    </div>
+    <>
+      <div>
+        <Counter />
+      </div>
+    </>
   );
 }
 
