@@ -1,31 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
-
-app.use(bodyParser);
+const loginRouter = require("./controllers/login");
 
 app.use(morgan(":method :url"));
+app.use(bodyParser());
+// app.use(cors);
+
+app.use("/login", loginRouter);
 
 app.get("/", (request, response) => {
   response.send("This is the main Backend");
 });
 
-app.get("/login", (request, response) => {
-  const testData = require("./test.json");
-  response.send(testD);
-});
-
-app.post("/login", (request, response) => {
-  const requestBody = request.body;
-  response.send({ action: "log in", message: "successful", body: requestBody });
-});
-
-app.delete("/login", (request, response) => {
-  const users = require("./test.json");
-  const deleteUser = users.pop();
-  response.send(deleteUser);
-});
+// app.use((request, response, next) => {
+//   response.status(404);
+//   next();
+// });
 
 app.listen(3001, () => {
   console.log("Application is running");
