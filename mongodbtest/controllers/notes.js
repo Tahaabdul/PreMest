@@ -32,10 +32,19 @@ noteRouter.post("/", async (request, response) => {
   }
 });
 
-noteRouter.delete("/:id", (request, resposne) => {
+noteRouter.delete("/:id", (request, response) => {
   const noteId = request.params.id;
   Note.findByIdAndDelete(noteId);
-  resposne.status().send({ message: `Note with id: ${noteId} was deleted ` });
+  response
+    .status(200)
+    .send({ message: `Note with id: ${noteId} was deleted ` });
 });
 
+noteRouter.get("/:id", async (request, response) => {
+  const rId = request.params.id;
+  console.log(rId);
+  await Note.find({ id: rId }).then((res) => {
+    response.status(200).send(res);
+  });
+});
 module.exports = noteRouter;
